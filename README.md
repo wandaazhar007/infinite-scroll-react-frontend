@@ -9,7 +9,7 @@ A blazing-fast ReactJS application demonstrating infinite scrolling with Axios, 
 - **ReactJS**: Built with the popular React library.
 
 ## Demo
-[Add a link to your live demo if available]
+Avalaible soon
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ Make sure you have the following installed:
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/username/repository-name.git
+    git clone https://github.com/wandaazhar007/repository-name.git
     ```
 
 2. **Navigate to the project directory**
