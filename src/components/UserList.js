@@ -6,7 +6,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [lastId, setLastId] = useState(0);
   const [tempId, setTempId] = useState(0);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(19);
   const [keyword, setKeyword] = useState("");
   const [query, setQuery] = useState("");
   const [hasMore, setHasMore] = useState(true);
@@ -17,16 +17,21 @@ const UserList = () => {
 
   const getUsers = async () => {
     const response = await axios.get(
-      `http://localhost:5000/users?search_query=${keyword}&lastId=${lastId}&limit=${limit}`
+      `http://localhost:2003/users?search_query=${keyword}&lastId=${lastId}&limit=${limit}`
     );
     const newUsers = response.data.result;
     setUsers([...users, ...newUsers]);
     setTempId(response.data.lastId);
-    setHasMore(response.data.hasMore);
+    setTimeout(() => {
+      setHasMore(response.data.hasMore);
+    }, 7000)
   };
 
   const fetchMore = () => {
-    setLastId(tempId);
+    setTimeout(() => {
+      // setHasMore(response.data.hasMore);
+      setLastId(tempId);
+    }, 1000)
   };
 
   const searchData = (e) => {
@@ -63,7 +68,7 @@ const UserList = () => {
             dataLength={users.length}
             next={fetchMore}
             hasMore={hasMore}
-            loader={<h4>Loading...</h4>}
+            loader={<h4 style={{ textAlign: 'center' }}>Loading...</h4>}
           >
             <table className="table is-striped is-bordered is-fullwidth mt-2">
               <thead>
