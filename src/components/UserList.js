@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import './userList.css';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [lastId, setLastId] = useState(0);
   const [tempId, setTempId] = useState(0);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(40);
   const [keyword, setKeyword] = useState("");
   const [query, setQuery] = useState("");
   const [hasMore, setHasMore] = useState(true);
@@ -40,7 +41,7 @@ const UserList = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-6 mobile-container-padding">
       <div className="columns">
         <div className="column is-centered">
           <form onSubmit={searchData}>
@@ -59,6 +60,10 @@ const UserList = () => {
                   Search
                 </button>
               </div>
+            </div>
+            <div className="result">
+              <p>{keyword} <span>X</span></p>
+
             </div>
           </form>
 

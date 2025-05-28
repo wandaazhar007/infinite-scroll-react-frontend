@@ -1,0 +1,49 @@
+
+@media screen and (max-width: 768px) {
+  .mobile-container-padding {
+    padding-left: 3rem; /* Adjust this value as needed */
+    padding-right: 3rem; /* Adjust this value as needed */
+  }
+}
+
+.column {
+  font-size: .9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .column {
+   font-size: .8rem;
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result p {
+  font-size: 1rem;
+  background-color: green;
+  color: aliceblue;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  /* width: 30px;
+  height: 30px; */
+}
+
+.result p span {
+  border-radius: 50%;
+  background-color: white;
+  color: red;
+  border: .1rem solid white;
+}
+
+.result p span p {
+  /* border-radius: 50%;
+  background-color: white;
+  color: red;
+  border: .1rem solid white; */
+}
