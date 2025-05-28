@@ -35,9 +35,21 @@ const UserList = () => {
 
   const searchData = (e) => {
     e.preventDefault();
+
+    if (query.length === 0) {
+      return
+    }
+
     setLastId(0);
     setUsers([]);
     setKeyword(query);
+
+  };
+  const reset = () => {
+    setKeyword("");
+    setQuery("");
+    setLastId(0);
+    setUsers([]);
   };
 
   return (
@@ -56,15 +68,23 @@ const UserList = () => {
                 />
               </div>
               <div className="control">
-                <button type="submit" className="button is-info">
-                  Search
-                </button>
+                {keyword === "" ? (
+                  <button type="submit" className="button is-success">
+                    <span> Search</span>
+                  </button>
+                ) : (
+                  <button type="button" className="button is-danger" onClick={reset}>
+                    <span> Reset</span>
+                  </button>
+                )}
               </div>
             </div>
-            <div className="result">
-              <p>{keyword} <span>X</span></p>
-
-            </div>
+            {keyword && (
+              <div className="result" onClick={reset}>
+                <p>{keyword}</p>
+              </div>
+            )
+            }
           </form>
 
           <InfiniteScroll
